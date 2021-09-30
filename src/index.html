@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <h1>💖 Hello World!</h1>
+    <p>Welcome to your Electron application.</p>
+
+    <div class="container">
+      <h1></h1>
+      <div class="cart">
+        <div class="products" id="modalproduct">
+          <div class="product">
+            <div class="imgcolumn">
+              <div class="productname">Ayam Goreng</div>
+            </div>
+            <div class="product-info">
+              <h4 class="product-name">Modifier</h4>
+              <h4 class="product-price">Room</h4>
+              <h4 class="product-offer">Jumlah</h4>
+              <h4 class="product-offer">Notes</h4>
+            </div>
+            <div class="product-infofield">
+              <h4 class="product-name">: 232</h4>
+              <h4 class="product-price">: 3</h4>
+              <h4 class="product-offer">: Panas, pedas</h4>
+              <h4 class="product-offer">: Jangan pakai sayur</h4>
+              <p class="product-time">
+                09:20
+              </p>
+              <div class="product-status">
+                <span>STATUS :</span>
+                <span style="color: blue">Diterima</span>
+              </div>
+            </div>
+          </div>
+          <div class="product">
+            <div class="imgcolumn">
+              <div class="productname">Ayam Goreng</div>
+            </div>
+            <div class="product-info">
+              <h4 class="product-name">Modifier</h4>
+              <h4 class="product-price">Room</h4>
+              <h4 class="product-offer">Jumlah</h4>
+              <h4 class="product-offer">Notes</h4>
+            </div>
+            <div class="product-infofield">
+              <h4 class="product-name">: 232</h4>
+              <h4 class="product-price">: 3</h4>
+              <h4 class="product-offer">: Panas, pedas</h4>
+              <h4 class="product-offer">: Jangan pakai sayur</h4>
+              <p class="product-time">
+                09:20
+              </p>
+              <div class="product-status">
+                <span>STATUS :</span>
+                <span style="color: blue">Diterima</span>
+              </div>
+            </div>
+          </div><div class="product">
+            <div class="imgcolumn">
+              <div class="productname">Ayam Goreng</div>
+            </div>
+            <div class="product-info">
+              <h4 class="product-name">Modifier</h4>
+              <h4 class="product-price">Room</h4>
+              <h4 class="product-offer">Jumlah</h4>
+              <h4 class="product-offer">Notes</h4>
+            </div>
+            <div class="product-infofield">
+              <h4 class="product-name">: 232</h4>
+              <h4 class="product-price">: 3</h4>
+              <h4 class="product-offer">: Panas, pedas</h4>
+              <h4 class="product-offer">: Jangan pakai sayur</h4>
+              <p class="product-time">
+                09:20
+              </p>
+              <div class="product-status">
+                <span>STATUS :</span>
+                <span style="color: blue">Diterima</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="modals" class="modal">
+      <div class="modal-content">
+        <div class="modal-body">
+          <p>Change order ayam goreng status to "Dibuat"</p>
+          <button type="button" class="btnmmodal" data-dismiss="modal">YES</button><br>
+          <button type="button" class="btnmmodalNO" data-dismiss="modal">NO</button>
+        </div>
+      </div>
+    </div>
+
+  <script>
+     var modal = document.getElementById("modals");
+      var btn = document.getElementById("modalproduct");
+      var YES = document.getElementsByClassName("btnmmodal")[0];
+      var no = document.getElementsByClassName("btnmmodalNO")[0];
+
+      const electron = require('electron')
+      const BrowserWindow = electron.remote.BrowserWindow
+
+      $( "#modals" ).click(function() {
+        let win = new BrowserWindow({ show: false })
+        win.on('close', function () { win = null })
+        win.loadURL("github.com")
+        win.once('ready-to-show', () => {
+            win.show()
+        })
+      });
+
+      modal.btn.onclick = function() {
+        modal.style.display = "block";
+      }
+      YES.onclick = function() {
+        modal.style.display = "none";
+      }
+      no.onclick = function() {
+        modal.style.display = "none";
+      }
+      window.onclick = function(event) {
+        if (event.target == modal) {
+        modal.style.display = "none";
+        }
+      }
+  </script>
+  </body>
+</html>
